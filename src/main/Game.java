@@ -385,7 +385,7 @@ public class Game implements Runnable {
                     setGameState(GameState.PLAYING);
                 break;
             case GAMEOVER:
-                if (gameState == GameState.PLAYING) {
+                if (gameState == GameState.PLAYING || gameState == GameState.OPTIONS) {
                     gameState = GameState.GAMEOVER;
                     pauseTime = System.currentTimeMillis();
                 }
@@ -401,7 +401,7 @@ public class Game implements Runnable {
                 }
                 break;
             case OPTIONS:
-                if (gameState == GameState.PAUSED || gameState == GameState.MAINMENU) {
+                if (gameState == GameState.PAUSED || gameState == GameState.MAINMENU || gameState == GameState.GAMEOVER) {
                     gameState = GameState.OPTIONS;
                 }
                 break;
